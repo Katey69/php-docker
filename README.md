@@ -23,6 +23,7 @@ services:
     depends_on:
       - db
     image: php:8.1.1-apache
+    build: ./php_custom
     volumes:
       - "./:/var/www/html"
     ports:
@@ -33,7 +34,7 @@ services:
   phpmyadmin:
     depends_on:
       - db
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:5.2.1-apache
     ports:
       - 8001:80
     environment:
